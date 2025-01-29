@@ -1,9 +1,9 @@
 function calculateResult(jsonInput) {
   const { keys, conversions } = JSON.parse(jsonInput);
   const { n, k } = keys;
-  let sum = 0n; // Initialize sum as a BigInt
+  let sum = 0n; 
 
-  // Perform base conversions and sum the results
+ ts
   for (const { base, value } of conversions) {
     let base10Value;
     if (base === '16') {
@@ -11,12 +11,12 @@ function calculateResult(jsonInput) {
     } else {
       base10Value = BigInt(value, parseInt(base));
     }
-    sum += base10Value; // Accumulate the sum
+    sum += base10Value; 
   }
 
-  // Calculate (Sum / n) % k
+
   const result = (sum / BigInt(n)) % BigInt(k);
-  return result.toString(); // Return result as a string
+  return result.toString(); 
 }
 
 const result = calculateResult(jsonInput);
